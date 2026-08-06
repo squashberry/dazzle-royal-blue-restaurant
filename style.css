@@ -1,0 +1,663 @@
+:root{
+  --royal:#003B8F;
+  --navy:#071029;
+  --gold:#CDA34B;
+  --cream:#F8EFE4;
+  --muted:#BFB6AC;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(180deg,var(--navy),#031428);
+  color:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  width:min(1120px,calc(100% - 2rem));
+  margin:auto;
+}
+
+
+/* =====================
+   LOADER
+===================== */
+
+.loader{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--royal),var(--navy));
+  z-index:9999;
+  transition:.6s ease;
+}
+
+.loader-inner{
+  text-align:center;
+}
+
+.loader-chicken{
+  display:block;
+  margin:auto;
+}
+
+.loader-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.7rem;
+  margin:.6rem 0 0;
+}
+
+.loader-sub{
+  color:var(--muted);
+}
+
+.loader-ring{
+  width:48px;
+  height:48px;
+  margin:1rem auto;
+  border-radius:50%;
+  border:4px solid rgba(205,163,75,.2);
+  border-top-color:var(--gold);
+  animation:spin 1.5s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+
+/* =====================
+   HEADER
+===================== */
+
+.site-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:50;
+  padding:.8rem 0;
+  background:transparent;
+  transition:.3s;
+}
+
+.site-header.scrolled{
+  background:rgba(3,20,40,.95);
+  backdrop-filter:blur(8px);
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  color:var(--cream);
+  text-decoration:none;
+  font-family:"Cormorant Garamond",serif;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+
+.nav{
+  display:flex;
+  gap:1rem;
+}
+
+.nav a{
+  color:var(--cream);
+  text-decoration:none;
+}
+
+.nav a:hover{
+  color:var(--gold);
+}
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border:0;
+}
+
+.nav-toggle span{
+  display:block;
+  width:24px;
+  height:2px;
+  margin:5px;
+  background:white;
+}
+
+
+/* =====================
+   HERO
+===================== */
+
+.hero{
+  min-height:88vh;
+  display:grid;
+  align-items:center;
+  position:relative;
+  padding:5rem 0;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url("images/restaurant-interior.jpg");
+  background-size:cover;
+  background-position:center 60%;
+  filter:brightness(.45);
+}
+
+.hero-content{
+  position:relative;
+  max-width:720px;
+}
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+}
+
+.hero-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(2.5rem,5vw,4rem);
+}
+
+.hero-sub{
+  color:var(--muted);
+}
+
+.hero-actions{
+  display:flex;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+
+
+.btn{
+  padding:.8rem 1.2rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn-primary{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.btn-outline{
+  border:1px solid var(--gold);
+  color:var(--cream);
+}
+
+
+/* =====================
+   SECTIONS
+===================== */
+
+.section{
+  padding:4rem 0;
+}
+
+
+/* =====================
+   ABOUT
+===================== */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.about-image{
+  max-width:450px;
+  height:320px;
+  overflow:hidden;
+  border-radius:14px;
+}
+
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* =====================
+   FEATURES
+===================== */
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
+
+.feature-card{
+  padding:1.5rem;
+  border-radius:12px;
+  background:rgba(255,255,255,.03);
+}
+
+.feature-card h3{
+  color:var(--gold);
+}
+/* =====================
+   MENU
+===================== */
+
+.menu-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+
+.menu-list{
+  list-style:none;
+  padding:0;
+}
+
+.menu-list li{
+  padding:.8rem 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dish{
+  font-weight:600;
+}
+
+.price{
+  float:right;
+  color:var(--gold);
+}
+
+.meta{
+  font-size:.85rem;
+  color:var(--muted);
+  margin-top:.2rem;
+}
+
+
+/* =====================
+   WHY CHOOSE US
+===================== */
+
+.why-grid{
+  display:grid;
+  grid-template-columns:.7fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.rating{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.stars{
+  color:var(--gold);
+}
+
+.score{
+  font-size:2rem;
+  font-weight:700;
+}
+
+.reviews{
+  color:var(--muted);
+}
+
+.why-list{
+  list-style:none;
+  padding:0;
+  color:var(--muted);
+  line-height:2;
+}
+
+
+/* =====================
+   GALLERY
+===================== */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+.gallery-item{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.gallery-item:hover{
+  transform:scale(1.03);
+}
+
+
+/* =====================
+   REVIEWS
+===================== */
+
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+.review-card{
+  background:rgba(255,255,255,.03);
+  padding:1.5rem;
+  border-radius:12px;
+}
+
+.review-meta{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:1rem;
+}
+
+
+/* =====================
+   CONTACT
+===================== */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+
+.contact-card{
+  padding:1.5rem;
+  border-radius:12px;
+  background:rgba(255,255,255,.03);
+}
+
+.contact-details{
+  color:var(--muted);
+}
+
+.contact-actions{
+  display:flex;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+
+
+/* Dining image */
+
+.contact-card.placeholder{
+  height:350px;
+  overflow:hidden;
+  padding:0;
+}
+
+.contact-card.placeholder img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+
+/* =====================
+   FOOTER
+===================== */
+
+.site-footer{
+  padding:2rem 0;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.socials a{
+  color:var(--cream);
+  text-decoration:none;
+  margin-left:1rem;
+}
+
+
+/* =====================
+   LIGHTBOX
+===================== */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  place-items:center;
+  background:rgba(0,0,0,.85);
+  z-index:9998;
+}
+
+.lightbox.open{
+  display:grid;
+}
+
+.lightbox-img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:12px;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:2rem;
+  background:none;
+  color:white;
+  border:0;
+}
+
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:719px){
+
+  .nav{
+    display:none;
+  }
+
+  .nav.open{
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    right:1rem;
+    top:4rem;
+    background:rgba(3,20,40,.95);
+    padding:1rem;
+    border-radius:10px;
+  }
+
+
+  .nav-toggle{
+    display:block;
+  }
+
+
+  .about-grid,
+  .why-grid,
+  .contact-grid,
+  .menu-columns{
+    grid-template-columns:1fr;
+  }
+
+
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+
+  .reviews-grid{
+    grid-template-columns:1fr;
+  }
+
+
+  .about-image{
+    max-width:100%;
+    height:280px;
+  }
+
+
+  .contact-card.placeholder{
+    height:280px;
+  }
+
+
+  .footer-inner{
+    flex-direction:column;
+    gap:1rem;
+  }
+
+}
+
+/* ==========================
+   PREMIUM CARD SCROLL EFFECT
+========================== */
+
+.scroll-card{
+    opacity:0;
+    transform:translateY(80px) scale(.95);
+    filter:blur(8px);
+    transition:
+        opacity .8s cubic-bezier(.17,.67,.35,1),
+        transform .8s cubic-bezier(.17,.67,.35,1),
+        filter .8s ease;
+}
+
+
+.scroll-card.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+
+/* Different directions */
+
+.from-left{
+    transform:translateX(-80px) scale(.95);
+}
+
+.from-right{
+    transform:translateX(80px) scale(.95);
+}
+
+.from-bottom{
+    transform:translateY(100px) scale(.95);
+}
+
+
+.from-left.show,
+.from-right.show,
+.from-bottom.show{
+    transform:translate(0) scale(1);
+}
+
+
+/* Card hover depth */
+
+.feature-card,
+.review-card,
+.contact-card,
+.menu-list li{
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.feature-card:hover,
+.review-card:hover,
+.contact-card:hover{
+    transform:
+        translateY(-12px)
+        rotateX(3deg);
+    
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+}
+
+
+/* Gallery premium hover */
+
+.gallery-item{
+    transition:.5s ease;
+}
+
+
+.gallery-item:hover{
+    transform:
+        translateY(-10px)
+        scale(1.06);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.4);
+}
+
+
+/* Gold shine effect */
+
+.btn-primary{
+    position:relative;
+    overflow:hidden;
+}
+
+
+.btn-primary::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:70%;
+    height:100%;
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+    transition:.6s;
+}
+
+
+.btn-primary:hover::before{
+    left:120%;
+}
