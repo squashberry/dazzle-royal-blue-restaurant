@@ -156,7 +156,7 @@ body{
 .hero-bg{
   position:absolute;
   inset:0;
-  background:url("images/restaurant-interior.jpg");
+  background:url("images/restaurant-interior.webp");
   background-size:cover;
   background-position:center 60%;
   filter:brightness(.45);
