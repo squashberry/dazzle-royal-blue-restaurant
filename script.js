@@ -38,10 +38,14 @@ window.addEventListener('load', async () => {
   try{
     await imagesLoaded();
   }catch(e){}
-  loader.style.opacity = '0';
-  loader.style.visibility = 'hidden';
-  setTimeout(()=> loader.remove(),700);
+
+  setTimeout(() => {
+    loader.style.opacity = '0';
+    loader.style.visibility = 'hidden';
+    setTimeout(()=> loader.remove(),700);
+  }, 2000); // 2 seconds
 });
+
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');
